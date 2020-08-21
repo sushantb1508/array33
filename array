@@ -1,0 +1,23 @@
+def subarraysum(arr,n,k):
+    sumdict={0:1}
+    count=0
+    z=0
+    currsum=0
+    for i in range(n):
+        currsum = currsum + arr[i]
+        z = currsum - k
+        if z in sumdict:
+            count+=sumdict[z]
+        elif currsum in sumdict:
+            sumdict[currsum]+=1
+        else:
+            sumdict[currsum]=1
+    return count
+if __name__ == "__main__":
+    arr=[3,4,7,2,-3,1,4,2,1]
+    n=len(arr)
+    k=7
+    ans=subarraysum(arr,n,k)
+    print(ans)
+
+            
